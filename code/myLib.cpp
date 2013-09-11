@@ -26,3 +26,26 @@ int count(int c) {
 	}
 	return x[100000];
 }
+
+Registro::Registro(int id) {
+	this->id = id;
+}
+void Registro::setId(int newID) {
+	this->id = newID;
+}
+int Registro::getId() {
+	int id = 5;
+	return this->id;
+}
+
+Conta::Conta(int id, double saldo) : Registro(id) {
+	this-> saldo = saldo;
+}
+void Conta::print() {
+	cout << this->getId() << "," << this->saldo << endl;
+	cout << this->id << "," << this->saldo << endl;
+}
+Conta Conta::operator-(Conta other) {
+	Conta ret(this->id, this->saldo - other.saldo);
+	return ret;
+}
