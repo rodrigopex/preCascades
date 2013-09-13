@@ -15,7 +15,9 @@ class Registro {
 protected:
 	int id;
 public:
+	static int counter;
 	Registro(int id);
+	~Registro();
 	void setId(int newID);
 	int getId();
 };
@@ -25,7 +27,7 @@ public:
 	Conta(int id = 0, double saldo = 0);
 	void print();
 	double saldo;
-	Conta operator-(Conta other);
+	Conta operator+ (Conta other);
 };
 
 //typedef struct conta Conta;

@@ -27,9 +27,19 @@ int count(int c) {
 	return x[100000];
 }
 
+int Registro::counter = 0;
+
 Registro::Registro(int id) {
 	this->id = id;
+	counter++;
+	cout << "Agora temos " << counter << "Registros!" << endl;
 }
+
+Registro::~Registro() {
+	counter--;
+	cout << "Agora temos " << counter << "Registros!" << endl;
+}
+
 void Registro::setId(int newID) {
 	this->id = newID;
 }
@@ -45,7 +55,7 @@ void Conta::print() {
 	cout << this->getId() << "," << this->saldo << endl;
 	cout << this->id << "," << this->saldo << endl;
 }
-Conta Conta::operator-(Conta other) {
-	Conta ret(this->id, this->saldo - other.saldo);
+Conta Conta::operator+(Conta other) {
+	Conta ret(this->id, this->saldo + other.saldo);
 	return ret;
 }

@@ -11,6 +11,11 @@ int x[10] = {1,2,3,4,5,6,7,8,9,10};
 	t.change();
 }*/
 
+template <class T>
+T Sum (T a, T b) {
+	return a + b;
+}
+
 int main () {
 	//x[10] = 50;
 	int m = 10;
@@ -63,10 +68,19 @@ int main () {
 	
 	Conta * test3 = new Conta;
 	test3->print();
+	delete test3;
 	
 	Conta * test4 = new Conta(6789.0, 100);
 	test4->print();
 	
-	Conta test5 = test2 - *test4;
+	Conta test5 = test2 + *test4;
 	test5.print();
+	
+	Conta test6 = Sum<Conta>(test2, *test4);
+	cout << "Resultado: ";
+	test6.print();
+	
+	cout << Registro::counter << endl;
+	
+	cout << Sum<int>(200,300) << endl;
 }
